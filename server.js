@@ -1,8 +1,9 @@
-var http = require('http');
-var express = require('express');
+let http = require('http');
+let express = require('express');
+const Quote = require('inspirational-quotes');
 
-var app = express();
-var PORT = 3000;
+let app = express();
+let PORT = 3000;
 
 app.get('/', function(req, res) {
     res.status(200).send("Je to tam.");
