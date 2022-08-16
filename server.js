@@ -3,12 +3,16 @@ let express = require('express');
 const Quote = require('inspirational-quotes');
 
 let app = express();
-let PORT = 3000;
+
+let port = process.env.PORT;
+if(port == null || port == "") {
+ port = 5000;
+}
 
 app.get('/', function(req, res) {
-    res.status(200).send("Je to tam.");
+    res.send(Quote.getQuote());
 });
 
-app.listen(PORT, function() {
-    console.log(`Server is running on port ${PORT}`);
+app.listen(port, function() {
+    console.log(`Server is running on port ${port}`);
 })
